@@ -17,13 +17,19 @@ class Snake:
 
     def create_snake(self):
         for turtle in STARTING_POSITION:
-            jam = Turtle(shape="square")
-            jam.color('white')
-            jam.penup()
-            jam.goto(turtle)
-            # jam.goto(turtle*(-20), 0)
-            # New_tuple = (jam.pos())
-            self.my_turtle.append(jam)
+            self.add_segment(turtle)
+
+    def add_segment(self, turtle):
+        jam = Turtle(shape="square")
+        jam.color('white')
+        jam.penup()
+        jam.goto(turtle)
+        # jam.goto(turtle*(-20), 0)
+        # New_tuple = (jam.pos())
+        self.my_turtle.append(jam)
+
+    def extend(self):
+        self.add_segment(self.my_turtle[-1].pos())
 
     def move(self):
         k = self.my_turtle
