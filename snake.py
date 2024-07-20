@@ -5,7 +5,7 @@ MOVE_DIS = 20
 UP = 90
 DOWN = 270
 LEFT = 180
-RIGHT =0
+RIGHT = 0
 
 
 class Snake:
@@ -31,6 +31,13 @@ class Snake:
     def extend(self):
         self.add_segment(self.my_turtle[-1].pos())
 
+    def reset(self):
+        for seg in self.my_turtle:
+            seg.goto(1000, 1000)
+        self.my_turtle.clear()
+        self.create_snake()
+        self.head = self.my_turtle[0]
+
     def move(self):
         k = self.my_turtle
         for i in range(len(k) - 1, 0, -1):
@@ -54,6 +61,4 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-
-
 
